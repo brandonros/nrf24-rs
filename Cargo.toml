@@ -1,0 +1,17 @@
+[package]
+name = "nrf24"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["std"]
+std = ["log", "tokio"]
+no_std = ["defmt", "embassy-time"]
+
+[dependencies]
+log = { version = "0.4.19", optional = true }
+tokio = { version = "1.28", features = ["rt", "time"], optional = true }
+defmt = { version = "0.3.5", optional = true }
+embassy-time = { version = "0.1", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "defmt-timestamp-uptime"], optional = true }
+embedded-hal = { version = "=1.0.0-alpha.11" }
+bitfield = "0.14.0"
