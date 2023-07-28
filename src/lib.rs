@@ -1,3 +1,5 @@
+#![no_std]
+
 mod bitfields;
 
 #[cfg(feature = "std")]
@@ -6,7 +8,7 @@ use log::*;
 use defmt::*;
 
 #[cfg(feature = "std")]
-use std::time::Duration;
+use tokio::time::Duration;
 #[cfg(feature = "no_std")]
 use embassy_time::{Timer, Duration};
 
