@@ -219,7 +219,10 @@ where
             let mut request_buffer: [u8; 33] = [0xFF; 33];
             request_buffer[0] = R_RX_PAYLOAD;
             spi.transfer(&mut response_buffer, &request_buffer).unwrap();
+            #[cfg(feature = "std")]
             info!("R_RX_PAYLOAD response_buffer = {:02x?}", &response_buffer[1..]);
+            #[cfg(feature = "no_std")]
+            info!("R_RX_PAYLOAD response_buffer = {:02x}", response_buffer[1..]);
             // write NRF_STATUS.RX_DR to clear
             let old_status = response_buffer[0];
             let mut new_status = Status(old_status);
@@ -251,7 +254,10 @@ where
         }
         let mut response_buffer = [0u8; 33];
         spi.transfer(&mut response_buffer, &request_buffer).unwrap();
+        #[cfg(feature = "std")]
         info!("W_TX_PAYLOAD response_buffer = {:02x?}", &response_buffer[1..]);
+        #[cfg(feature = "no_std")]
+        info!("W_TX_PAYLOAD response_buffer = {:02x?", response_buffer[1..]);
         // set CE high
         ce_output.set_high().unwrap();
         // sleep
