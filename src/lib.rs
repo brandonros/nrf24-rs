@@ -203,7 +203,7 @@ where
     }
 }
 
-pub async fn nrf2401_receiver_loop<Spi>(spi: &mut Spi)
+pub async fn nrf24_receiver_loop<Spi>(spi: &mut Spi)
 where
     Spi: SpiDevice,
 {
@@ -241,7 +241,7 @@ where
     }
 }
 
-pub async fn nrf2401_transmitter_loop<Spi, CePin>(spi: &mut Spi, ce_output: &mut CePin)
+pub async fn nrf24_transmitter_loop<Spi, CePin>(spi: &mut Spi, ce_output: &mut CePin)
 where
     Spi: SpiDevice,
     CePin: OutputPin,
