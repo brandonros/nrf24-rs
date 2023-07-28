@@ -12,6 +12,6 @@ no_std = ["defmt", "embassy-time"]
 log = { version = "0.4.19", optional = true }
 tokio = { version = "1.28", features = ["rt", "time"], optional = true }
 defmt = { version = "0.3.5", optional = true }
-embassy-time = { version = "0.1", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "defmt-timestamp-uptime"], optional = true }
+embassy-time = { version = "0.1", git = "https://github.com/embassy-rs/embassy", features = ["nightly", "unstable-traits", "defmt", "defmt-timestamp-uptime"], optional = true }
 embedded-hal = { version = "=1.0.0-alpha.11" }
 bitfield = "0.14.0"
