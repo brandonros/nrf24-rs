@@ -257,7 +257,7 @@ where
         #[cfg(feature = "std")]
         info!("W_TX_PAYLOAD response_buffer = {:02x?}", &response_buffer[1..]);
         #[cfg(feature = "no_std")]
-        info!("W_TX_PAYLOAD response_buffer = {:02x?", response_buffer[1..]);
+        info!("W_TX_PAYLOAD response_buffer = {:02x}", response_buffer[1..]);
         // set CE high
         ce_output.set_high().unwrap();
         // sleep
